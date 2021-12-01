@@ -30,6 +30,18 @@ public class Client {
         }
         return solde;
     }
+    // pour allimenter le compte avec d'autres comptes
+    public void renfouler(float valeur ,Compte compte){
+        for(int i =0;i<nbComptes;i++){
+            if(nbComptes==1){
+                System.out.println("vous avez qu'un seul compte et il est négatif");
+            }else if(nbComptes>1){
+                if(this.comptes[i].getSolde()>0){
+                    this.comptes[i].virer(valeur, compte);
+                }
+            }
+        }
+    }
 
     public Compte getCompte(int num) {
         return comptes[num];

@@ -27,7 +27,6 @@ public class Compte {
         System.out.println("Le solde est du compte numéro "+this.numero+ " :"+this.solde);
     }
 
-
     // pour faire un virement dans un autre compte dest
     public void virer(float valeur, Compte dest){
         dest.solde+=valeur;

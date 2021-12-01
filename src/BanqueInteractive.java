@@ -18,6 +18,11 @@ public class BanqueInteractive {
             return this.clients[num];
     }
 
+    public void reflouer(float valeur, Compte compte){
+        for(int i=0;i<nbClient;i++){
+            this.clients[i].renfouler(valeur,compte);
+        }
+    }
     Scanner s=new Scanner(System.in);
     public void interaction(){
         System.out.println("Quelle opération voulez-vous effectuer ?" +
@@ -30,6 +35,7 @@ public class BanqueInteractive {
         switch (choix){
             case 1:
                 this.ajouterClient();
+                System.out.println("le client aété ajputer");
                 break;
             case 2:
                 System.out.println("Vous voulez quoi exactement ?");
@@ -41,7 +47,7 @@ public class BanqueInteractive {
                 break;
         }
         System.out.println("Entrez le nom du client");
-        String nom=s.nextLine();
+        String nom=s.next();
         System.out.println("- "+nom +" \n Le client "+nom+" a été crée."
                             +" \n Quelle opération voulez-vous effectuer?" +
                             " \n  1) Afficher un bilan"
@@ -51,9 +57,10 @@ public class BanqueInteractive {
                     );
         System.out.println("Quel est votre numéro client");
         int num=s.nextInt();
-        int choix2=s.nextInt();
         float valeur=0;
         float valeur2=0;
+        System.out.println("choisisez l'opération");
+        int choix2=s.nextInt();
         switch (choix2){
             case 1:
                 this.getClient(num).afficherSolde();
